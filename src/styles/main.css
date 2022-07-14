@@ -2,3 +2,9 @@ body {
   background-color: #107896;
   font-family: "Oswald", "Arial", sans-serif;
 }
+.folder {
+  color: rgb(255, 195, 195);
+}
+.file {
+  color: rgba(157, 255, 255, 0.692);
+}
