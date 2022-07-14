@@ -1,14 +1,17 @@
 import { data } from "./mock/mock";
+import { renderFile, renderFolder, renderTitle } from "./app";
 
-console.log("hello");
+// 1 Renders Title
+renderTitle();
 
-const div = document.createElement("div");
+//2 Get data from server
+const localData = data;
 
-div.innerHTML = "<h1> FREE FILE SHARING </h1>";
-div.style.textAlign = "center";
-div.style.fontWeight = "bold";
-div.style.color = "white";
-
-console.log(data);
-
-document.body.appendChild(div);
+//3 Render files and folders on screen
+data.forEach((item) => {
+  if (item.type === "folder") {
+    renderFolder(item);
+  } else {
+    renderFile(item);
+  }
+});

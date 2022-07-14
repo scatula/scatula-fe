@@ -1,3 +1,4 @@
+// Get all items
 export const data = [
   {
     id: "1",
