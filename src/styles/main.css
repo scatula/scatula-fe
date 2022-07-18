@@ -1,10 +1,24 @@
-body {
-  background-color: #107896;
-  font-family: "Oswald", "Arial", sans-serif;
+* {
+  box-sizing: border-box;
 }
+
+body {
+  background-color: #f5f5f5;
+  font-family: "Roboto", "Arial", sans-serif;
+}
+
 .folder {
   color: rgb(255, 195, 195);
 }
+
 .file {
   color: rgba(157, 255, 255, 0.692);
+}
+
+.listTable {
+  display: grid;
+}
+
+.listTableHeader {
+  display: grid;
 }
