@@ -17,8 +17,20 @@ body {
 
 .listTable {
   display: grid;
+  background-color: rgba(236, 239, 244, 0.4);
+  /* border: 1px solid black; */
+  border-radius: 40px;
+  overflow-y: scroll;
+  padding: 24px;
 }
 
 .listTableHeader {
+  display: grid;
+  color: #81a1c1;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.listTableRow {
   display: grid;
 }
