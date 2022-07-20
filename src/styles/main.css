@@ -1,10 +1,76 @@
 body {
-  background-color: #107896;
   font-family: "Oswald", "Arial", sans-serif;
+  padding: 0;
+  margin: 0;
 }
-.folder {
-  color: rgb(255, 195, 195);
+
+h1 {
+  margin: 0;
 }
-.file {
-  color: rgba(157, 255, 255, 0.692);
+
+.title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #4c566a;
+}
+
+.root {
+  height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+.main {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+}
+
+.header {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 65px;
+}
+
+.logo-placeholder {
+  height: 40px;
+  width: 40px;
+  border-radius: 100%;
+  background-color: beige;
+  margin-right: 10px;
+}
+
+.menu {
+  display: flex;
+  padding: 56px 90px 0 30px;
+  background-color: #5e81ac;
+  border-radius: 0 90px 0 0;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.menu-button {
+  color: white;
+  display: flex;
+  align-items: center;
+  margin-bottom: 19px;
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.button-outlined {
+  color: black;
+  padding-left: 20px;
+  background-color: white;
+  border-radius: 50px;
+  height: 50px;
+  width: 180px;
+}
+
+.svg-icon {
+  margin-right: 10px;
+  width: 18px;
+  height: 18px;
 }
