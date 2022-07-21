@@ -16,7 +16,7 @@
     "url": "https://github.com/akabolov/kbox/issues"
   },
   "homepage": "https://github.com/akabolov/kbox#readme",
-  "devDependencies": {
+  "dependencies": {
     "parcel": "^2.6.2"
   }
 }
