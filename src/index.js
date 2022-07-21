@@ -1,17 +1,8 @@
-import { data } from "./mock/mock";
-import { renderFile, renderFolder, renderTitle } from "./app";
+// import { data } from "./mock/mock";
+import { App } from "./App";
+import { Menu } from "./entities/Menu";
+import { FileManager } from "./entities/FileManager";
 
-// 1 Renders Title
-renderTitle();
-
-//2 Get data from server
-const localData = data;
-
-//3 Render files and folders on screen
-data.forEach((item) => {
-  if (item.type === "folder") {
-    renderFolder(item);
-  } else {
-    renderFile(item);
-  }
-});
+//1 Get app
+const app = new App(FileManager, Menu);
+app.renderApp();
