@@ -65,7 +65,7 @@ h1 {
 .button-filled {
   color: black;
   margin: 0 0 16px 30px;
-  background-color: white;
+  background-color: #c0c0c0;
   border-radius: 50px;
   height: 50px;
   width: 180px;
@@ -79,17 +79,16 @@ h1 {
 }
 
 .button-filled:hover {
-  background-color: #c0c0c0;
+  background-color: white;
   color: black;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
 }
 
 .menu-line {
-  position: relative;
   width: 100%;
   height: 1px;
   background: rgba(236, 239, 244, 0.3);
-  margin: 19px 0 19px 0;
+  margin: 19px 0;
 }
 
 .button-outlined:hover {
@@ -102,7 +101,7 @@ h1 {
   background-color: #eceff44d;
 }
 
-.svg-icon-addButton {
+.svg-icon-add-button {
   margin-right: 10px;
   padding-left: 21px;
   width: 18px;
@@ -114,8 +113,4 @@ h1 {
   margin-left: 21.75px;
   width: 18px;
   height: 18px;
-}
-
-.listMenu {
-  display: grid;
 }

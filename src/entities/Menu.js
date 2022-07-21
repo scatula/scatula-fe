@@ -7,10 +7,6 @@ export class Menu extends Entity {
     this.entity.classList.add("menu");
     this.menuConfig = menuConfig;
     this.Button = Button;
-    this.horizontalLine = document.createElement("div");
-    this.horizontalLine.classList.add("menu-line");
-    this.horizontalLine2 = document.createElement("div");
-    this.horizontalLine2.classList.add("menu-line");
 
     this.fillMenu();
   }
@@ -19,10 +15,10 @@ export class Menu extends Entity {
     this.menuConfig.forEach((menuItem, index) => {
       const { icon, type, text } = menuItem;
       this.entity.appendChild(new this.Button(icon, text, type).getEntity());
-      if (index === 4) {
-        this.entity.appendChild(this.horizontalLine);
-      } else if (index === 8) {
-        this.entity.appendChild(this.horizontalLine2);
+      if (index === 4 || index === 8) {
+        const horizontalLine = document.createElement("div");
+        horizontalLine.classList.add("menu-line");
+        this.entity.appendChild(horizontalLine);
       }
     });
   }
