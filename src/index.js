@@ -1,4 +1,4 @@
-import { data } from "./mock/mock";
+// import { data } from "./mock/mock";
 import { App } from "./App";
 import { Menu } from "./entities/Menu";
 import { FileManager } from "./entities/FileManager";

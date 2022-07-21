@@ -6,7 +6,7 @@ export class Button extends Entity {
     this.icon = icon;
     this.text = text;
     this.type = type;
-    this.entity.classList.add("menu-button", "link-button");
+    this.entity.classList.add("menu-button");
 
     if (this.type === "Filled") {
       this.entity.classList.add("button-filled");
