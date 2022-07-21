@@ -1,4 +1,12 @@
 import addIcon from "../images/add.svg";
+import drive from "../images/MyDrive.svg";
+import recent from "../images/Recent.svg";
+import starred from "../images/Starred.svg";
+import music from "../images/Music.svg";
+import img from "../images/Images.svg";
+import trash from "../images/Trash.svg";
+import video from "../images/Video.svg";
+import doc from "../images/Documents.svg";
 
 export const menuConfig = [
   {
@@ -9,41 +17,41 @@ export const menuConfig = [
   {
     text: "My Drive",
     type: "Outlined",
-    icon: "",
+    icon: drive,
   },
   {
     text: "Recent",
     type: "Outlined",
-    icon: "",
+    icon: recent,
   },
   {
     text: "Starred",
     type: "Outlined",
-    icon: "",
+    icon: starred,
   },
   {
     text: "Trash",
     type: "Outlined",
-    icon: "",
+    icon: trash,
   },
   {
     text: "Documents",
     type: "Outlined",
-    icon: "",
+    icon: doc,
   },
   {
     text: "Images",
     type: "Outlined",
-    icon: "",
+    icon: img,
   },
   {
     text: "Video",
     type: "Outlined",
-    icon: "",
+    icon: video,
   },
   {
     text: "Music",
     type: "Outlined",
-    icon: "",
+    icon: music,
   },
 ];
