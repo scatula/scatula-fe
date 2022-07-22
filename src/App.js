@@ -1,4 +1,6 @@
 import { menuConfig } from "./config/menuConfig";
+import { headerConfig } from "./config/headerConfig";
+
 export class App {
   constructor(FileManagerClass, MenuClass) {
     this.initiateApp(FileManagerClass, MenuClass);
@@ -18,8 +20,13 @@ export class App {
     const header = document.createElement("div");
     const placeholderLogo = document.createElement("div");
     const title = document.createElement("h1");
+    const searchBar = document.createElement("div");
+    const searchBarInput = document.createElement("input");
 
     placeholderLogo.classList.add("logo-placeholder");
+    searchBar.classList.add("search-bar");
+    searchBarInput.classList.add("search-input");
+    searchBarInput.setAttribute("placeholder", "Search");
     title.innerHTML = "KBOX";
     title.classList.add("title");
 
@@ -27,6 +34,8 @@ export class App {
     header.appendChild(title);
     header.classList.add("header");
 
+    searchBar.appendChild(searchBarInput);
+    header.appendChild(searchBar);
     this.rootDiv.appendChild(header);
   }
 
