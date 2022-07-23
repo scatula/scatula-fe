@@ -1,42 +1,20 @@
 import { menuConfig } from "./config/menuConfig";
-import { headerConfig } from "./config/headerConfig";
 
 export class App {
-  constructor(FileManagerClass, MenuClass) {
-    this.initiateApp(FileManagerClass, MenuClass);
+  constructor(FileManagerClass, MenuClass, HeaderClass) {
+    this.initiateApp(FileManagerClass, MenuClass, HeaderClass);
   }
 
-  initiateApp(FileManagerClass, MenuClass) {
+  initiateApp(FileManagerClass, MenuClass, HeaderClass) {
     this.fileManager = new FileManagerClass();
     this.menu = new MenuClass(menuConfig);
+    this.header = new HeaderClass();
+    
     this.rootDiv = document.createElement("div");
     this.mainDiv = document.createElement("div");
 
     this.mainDiv.classList.add("main");
     this.rootDiv.classList.add("root");
-  }
-
-  renderHeader() {
-    const header = document.createElement("div");
-    const placeholderLogo = document.createElement("div");
-    const title = document.createElement("h1");
-    const searchBar = document.createElement("div");
-    const searchBarInput = document.createElement("input");
-
-    placeholderLogo.classList.add("logo-placeholder");
-    searchBar.classList.add("search-bar");
-    searchBarInput.classList.add("search-input");
-    searchBarInput.setAttribute("placeholder", "Search");
-    title.innerHTML = "KBOX";
-    title.classList.add("title");
-
-    header.appendChild(placeholderLogo);
-    header.appendChild(title);
-    header.classList.add("header");
-
-    searchBar.appendChild(searchBarInput);
-    header.appendChild(searchBar);
-    this.rootDiv.appendChild(header);
   }
 
   renderRootDiv() {
@@ -49,6 +27,10 @@ export class App {
     this.rootDiv.appendChild(this.mainDiv);
     this.mainDiv.appendChild(this.menu.getEntity());
     this.mainDiv.appendChild(this.fileManager.getEntity());
+  }
+
+  renderHeader() {
+    this.rootDiv.appendChild(this.header.getEntity());
   }
 
   renderApp() {
