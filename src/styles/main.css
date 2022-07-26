@@ -171,3 +171,11 @@ h1 {
   background: url(../images/avatar.svg) no-repeat;
   margin-left: 20px;
 }
+
+.file-manager {
+  height: 100%;
+  display: grid;
+  margin: 0 16px;
+  background-color: rgba(236, 239, 244, 0.4);
+  border-radius: 60px 60px 0 0;
+}
