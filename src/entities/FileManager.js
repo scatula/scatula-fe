@@ -1,10 +1,9 @@
 import { Entity } from "../Entity";
-import { data } from "../mock/mock";
 import mock from "../images/mock.svg";
 import Points from "../images/Points.svg";
 
 export class FileManager extends Entity {
-  constructor(fileManagerTableConfig) {
+  constructor(fileManagerTableConfig, fileData) {
     super();
 
     this.fileManagerTableConfig = fileManagerTableConfig;
@@ -13,21 +12,24 @@ export class FileManager extends Entity {
       new TableHeader(fileManagerTableConfig).getEntity()
     );
 
+    this.fileData = fileData;
     this.renderTableData();
   }
 
   renderTableData() {
-    data.forEach(({ fileType, displayName, uploadTime, size, member }) => {
-      const item = new TableData(
-        displayName,
-        fileType,
-        uploadTime,
-        size,
-        member
-      );
+    this.fileData.forEach(
+      ({ fileType, displayName, uploadTime, size, member }) => {
+        const item = new TableData(
+          displayName,
+          fileType,
+          uploadTime,
+          size,
+          member
+        );
 
-      this.entity.appendChild(item.getEntity());
-    });
+        this.entity.appendChild(item.getEntity());
+      }
+    );
   }
 }
 

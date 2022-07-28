@@ -3,11 +3,15 @@ import { menuConfig } from "./config/menuConfig";
 
 export class App {
   constructor(FileManagerClass, MenuClass, HeaderClass) {
-    this.initiateApp(FileManagerClass, MenuClass, HeaderClass);
+    this.FileManager = FileManagerClass;
+    this.initiateApp(MenuClass, HeaderClass);
   }
 
-  initiateApp(FileManagerClass, MenuClass, HeaderClass) {
-    this.fileManager = new FileManagerClass(fileManagerTableConfig);
+  getFiles() {
+    return fetch("http://localhost:3000/files");
+  }
+
+  initiateApp(MenuClass, HeaderClass) {
     this.menu = new MenuClass(menuConfig);
     this.header = new HeaderClass();
 
@@ -18,10 +22,11 @@ export class App {
     this.rootDiv.classList.add("root");
   }
 
-  renderRootDiv() {
+  renderRootDiv(fileData) {
+    this.fileManager = new this.FileManager(fileManagerTableConfig, fileData);
     this.renderHeader();
     this.renderMainDiv();
-    
+
     document.body.appendChild(this.rootDiv);
   }
 
@@ -35,7 +40,23 @@ export class App {
     this.rootDiv.appendChild(this.header.getEntity());
   }
 
-  renderApp() {
-    this.renderRootDiv();
+  async renderApp() {
+    this.getFiles()
+      .then((response) => {
+        console.log({ response });
+        return response.json();
+      })
+      .then((res) => {
+        console.log({ res });
+        this.files = res;
+        this.renderRootDiv(this.files);
+        document.body.removeChild(loader);
+      })
+      .catch((e) => console.log(e));
+
+    const loader = document.createElement("div");
+    loader.classList.add("loader");
+
+    document.body.appendChild(loader);
   }
 }
