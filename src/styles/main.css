@@ -228,7 +228,15 @@ h1 {
   margin-right: 40px;
 }
 
+.loader-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
 .loader {
+  height: 100vh;
   border: 16px solid #f3f3f3; /* Light grey */
   border-top: 16px solid #3498db; /* Blue */
   border-radius: 50%;

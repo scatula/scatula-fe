@@ -50,13 +50,17 @@ export class App {
         console.log({ res });
         this.files = res;
         this.renderRootDiv(this.files);
-        document.body.removeChild(loader);
+        document.body.removeChild(loaderWrapper);
       })
       .catch((e) => console.log(e));
+
+    const loaderWrapper = document.createElement("div");
+    loaderWrapper.classList.add("loader-wrapper");
 
     const loader = document.createElement("div");
     loader.classList.add("loader");
 
-    document.body.appendChild(loader);
+    loaderWrapper.appendChild(loader);
+    document.body.appendChild(loaderWrapper);
   }
 }
