@@ -21,6 +21,7 @@ export class App {
   renderRootDiv() {
     this.renderHeader();
     this.renderMainDiv();
+    
     document.body.appendChild(this.rootDiv);
   }
 
