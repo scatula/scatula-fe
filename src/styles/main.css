@@ -55,29 +55,22 @@ h1 {
   align-items: flex-start;
 }
 
-.menu-button {
-  color: white;
-  display: flex;
-  width: 245px;
-  height: 40px;
-  align-items: center;
-  font-weight: 500;
-  font-size: 12px;
-}
-
 .input {
-  opacity: 0;
-  border-radius: 40px;
-  font-size: 1px;
+  display: none;
 }
 
 .button-filled {
-  color: black;
+  color: rgba(67, 76, 94, 1);
   margin: 0 0 16px 30px;
   background-color: white;
   border-radius: 50px;
   height: 50px;
   width: 180px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 12px;
 }
 
 .button-outlined {
@@ -92,6 +85,7 @@ h1 {
   padding: 13px 0 13px 21.75px;
   font-weight: 400;
   box-sizing: border-box;
+  cursor: pointer;
 }
 
 .button-filled:hover {

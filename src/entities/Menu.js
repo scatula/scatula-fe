@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 import { Entity } from "../Entity";
 
-// import addIcon from "../images/add.svg";
+import addIcon from "../images/add.svg";
 import drive from "../images/MyDrive.svg";
 import recent from "../images/Recent.svg";
 import starred from "../images/Starred.svg";
@@ -35,15 +35,16 @@ export class Menu extends Entity {
   fillMenu() {
     this.addButton = document.createElement("div");
     this.addButton.classList.add("button-filled");
-    this.addButtonLabel = document.createElement("label");
-    this.addButtonLabel.setAttribute("for", "file-upload");
-    this.addButtonLabel.innerHTML = "Add File";
-    this.addButton.appendChild(this.addButtonLabel);
-    this.addButton.innerHTML =
-      "<input type='file' class='input' id ='file-upload'>";
+    this.addButton.innerHTML = `<img src=${addIcon} class='svg-icon-add-button'/> <div> Add New </div>`;
+    this.input = document.createElement("input");
+    this.input.setAttribute("type", "file");
+    this.input.setAttribute("class", "input");
+    this.input.setAttribute("id", "file-upload");
+
+    this.addButton.appendChild(this.input);
 
     this.addButton.addEventListener("click", () => {
-      console.log("CLICK");
+      this.input.click();
     });
 
     this.driveButton = document.createElement("div");
@@ -84,7 +85,7 @@ export class Menu extends Entity {
     this.horizontalLine2 = document.createElement("div");
     this.horizontalLine2.classList.add("menu-line");
 
-    this.addButton.addEventListener("change", this.pickFile);
+    this.input.addEventListener("change", this.pickFile);
 
     this.entity.appendChild(this.addButton);
     this.entity.appendChild(this.driveButton);
