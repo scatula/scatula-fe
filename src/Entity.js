@@ -1,6 +1,6 @@
 export class Entity {
-  constructor() {
-    this.entity = document.createElement("div");
+  constructor(type = "div") {
+    this.entity = document.createElement(type);
   }
 
   getEntity() {
