@@ -1,19 +1,19 @@
+/* eslint-disable no-undef */
 import { fileManagerTableConfig } from "./config/fileManagerTableConfig";
-import { menuConfig } from "./config/menuConfig";
 
 export class App {
-  constructor(FileManagerClass, MenuClass, HeaderClass) {
+  constructor(FileManagerClass, HeaderClass, MenuClass) {
     this.FileManager = FileManagerClass;
-    this.initiateApp(MenuClass, HeaderClass);
+    this.initiateApp(HeaderClass, MenuClass);
   }
 
   getFiles() {
-    return fetch("http://localhost:3000/files");
+    return fetch(`${process.env.BACKEND_URL}/files`);
   }
 
-  initiateApp(MenuClass, HeaderClass) {
-    this.menu = new MenuClass(menuConfig);
+  initiateApp(HeaderClass, MenuClass) {
     this.header = new HeaderClass();
+    this.menu = new MenuClass();
 
     this.rootDiv = document.createElement("div");
     this.mainDiv = document.createElement("div");
