@@ -8,6 +8,16 @@ h1 {
   margin: 0;
 }
 
+::-moz-selection {
+  background-color: transparent;
+  color: none;
+}
+
+::selection {
+  background-color: transparent;
+  color: none;
+}
+
 .title {
   display: flex;
   justify-content: space-between;
@@ -193,12 +203,25 @@ h1 {
   align-content: start;
 }
 
+.file-manager-header {
+  display: grid;
+  grid-template-columns: 3.25fr 1fr 1fr 1fr 2fr 1fr;
+  height: 62px;
+  align-items: center;
+  border-bottom: 1px solid rgba(129, 161, 193, 0.5);
+}
+
 .file-manager-item {
   display: grid;
   grid-template-columns: 3.25fr 1fr 1fr 1fr 2fr 1fr;
   height: 62px;
   align-items: center;
   border-bottom: 1px solid rgba(129, 161, 193, 0.5);
+  cursor: pointer;
+}
+
+.file-manager-item:hover {
+  border-bottom: 2px solid rgba(108, 137, 167, 0.5);
 }
 
 .name-cell {

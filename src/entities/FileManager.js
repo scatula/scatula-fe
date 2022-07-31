@@ -38,7 +38,7 @@ export class TableHeader extends Entity {
     super();
 
     this.fileManagerTableConfig = fileManagerTableConfig;
-    this.entity.classList.add("file-manager-item");
+    this.entity.classList.add("file-manager-header");
 
     this.renderFileManagerTable();
   }
@@ -59,6 +59,9 @@ export class TableData extends Entity {
   constructor(originalName, type, updatedAt, size, members, moreInfo) {
     super();
     this.entity.classList.add("file-manager-item");
+    this.entity.addEventListener("click", () => {
+      console.log("CLICK");
+    });
 
     this.originalName = originalName;
     this.type = type;
@@ -124,9 +127,6 @@ export class TableData extends Entity {
     const nameSplit = this.originalName.split(".");
     const nameSlice = nameSplit.slice(0, -1);
     const nameJoin = nameSlice.join(".");
-    // nameJoin.addEventListener("click", () => {
-    //   console.log("CLICK");
-    // });
 
     name.innerHTML = `
     <img src='${mock}' class="svg-icon-table"/>
