@@ -18,13 +18,14 @@ export class FileManager extends Entity {
 
   renderTableData() {
     this.fileData.forEach(
-      ({ fileType, originalName, updatedAt, size, member }) => {
+      ({ fileType, originalName, updatedAt, size, member, filename }) => {
         const item = new TableData(
           originalName,
           fileType,
           updatedAt,
           size,
-          member
+          member,
+          filename
         );
 
         this.entity.appendChild(item.getEntity());
@@ -56,13 +57,19 @@ export class TableHeader extends Entity {
 }
 
 export class TableData extends Entity {
-  constructor(originalName, type, updatedAt, size, members, moreInfo) {
+  constructor(
+    originalName,
+    type,
+    updatedAt,
+    size,
+    members,
+    filename,
+    moreInfo
+  ) {
     super();
     this.entity.classList.add("file-manager-item");
-    this.entity.addEventListener("click", () => {
-      console.log("CLICK");
-    });
 
+    this.filename = filename;
     this.originalName = originalName;
     this.type = type;
     this.updatedAt = updatedAt;
@@ -70,7 +77,22 @@ export class TableData extends Entity {
     this.members = members;
     this.moreInfo = moreInfo;
 
+    this.entity.addEventListener("click", () => {
+      this.downloadFile(this.filename);
+    });
+
     this.renderCell();
+  }
+
+  downloadFile(filename) {
+    fetch(
+      // eslint-disable-next-line no-undef
+      `${process.env.BACKEND_URL}/files/download?` +
+        new URLSearchParams({
+          filename,
+        })
+    );
+    console.log(123);
   }
 
   getFileDate() {
