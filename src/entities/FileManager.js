@@ -69,7 +69,8 @@ export class TableData extends Entity {
 
     this.renderCell();
   }
-  getDate() {
+
+  getFileDate() {
     const today = new Date();
 
     const monthNames = [
@@ -87,7 +88,7 @@ export class TableData extends Entity {
       "December",
     ];
 
-    const incomingDate = new Date();
+    const incomingDate = new Date(this.updatedAt);
 
     let resultString;
 
@@ -123,6 +124,9 @@ export class TableData extends Entity {
     const nameSplit = this.originalName.split(".");
     const nameSlice = nameSplit.slice(0, -1);
     const nameJoin = nameSlice.join(".");
+    // nameJoin.addEventListener("click", () => {
+    //   console.log("CLICK");
+    // });
 
     name.innerHTML = `
     <img src='${mock}' class="svg-icon-table"/>
@@ -135,7 +139,7 @@ export class TableData extends Entity {
 
     const uploaded = document.createElement("div");
     uploaded.classList.add("uploaded-cell");
-    uploaded.innerHTML = this.getDate(this.updatedAt);
+    uploaded.innerHTML = this.getFileDate(this.updatedAt);
 
     const size = document.createElement("div");
     size.classList.add("size-cell");
